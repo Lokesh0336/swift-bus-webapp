@@ -1,45 +1,80 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SwiftBookings - Your Ultimate Travel Partner</title>
-    <!-- Tailwind CSS CDN - Essential for styling -->
-    <script src="https://cdn.tailwindcss.com"></script>
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+          <title>SwiftBookings - Your Ultimate Travel Partner</title>
 
-    <!-- Google Fonts - Inter (for body), Montserrat (for logo/heading) -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@600;700;800&family=Permanent+Marker&display=swap" rel="stylesheet">
+          <!-- Tailwind CSS CDN -->
+          <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0V4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
-    <!-- Link to your custom CSS file -->
-    <link rel="stylesheet" href="style.css">
-</head>
-<body class="bg-gradient-to-br from-blue-50 to-indigo-100 font-sans text-gray-900">
-    <div id="app-root">
-        <!-- Header Section: Contains the main logo/title and navigation links -->
-        <header class="bg-indigo-800 text-white p-4 shadow-xl">
-            <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
-                <!-- Main App Logo/Title with Montserrat font and animated airplane icon -->
-                <h1 class="text-3xl md:text-4xl tracking-wide mb-3 md:mb-0 flex items-center gap-2 font-logo text-white">
-                    <img src="https://www.logoground.com/uploads12/dv12y20232599112023-11-282887806book-train.jpg" alt="SwiftBookings Logo" class="w-10 h-10 rounded-full border-2 border-white shadow-md object-cover" />
-                    SwiftBookings <i class="fas fa-plane-departure text-xl animate-fly"></i>
+          <!-- Google Fonts -->
+          <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet" />
+
+          <!-- Font Awesome Icons -->
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+          <!-- Your custom CSS -->
+          <link rel="stylesheet" href="style.css" />
+        </head>
+        <body class="bg-gradient-to-br from-blue-50 to-indigo-100 font-sans text-gray-900">
+          <div id="app-root">
+
+            <!-- Header -->
+            <header class="bg-indigo-800 text-white p-4 shadow-xl">
+              <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+
+                <!-- Logo & Title -->
+                <h1 class="text-3xl md:text-4xl tracking-wide mb-3 md:mb-0 flex items-center gap-2 font-logo">
+                  <img src="https://www.logoground.com/uploads12/dv12y20232599112023-11-282887806book-train.jpg"
+                       alt="SwiftBookings Logo"
+                       class="w-10 h-10 rounded-full border-2 border-white shadow-md object-cover" />
+                  SwiftBookings <i class="fas fa-plane-departure text-xl animate-bounce"></i>
                 </h1>
-                <!-- Main Navigation Links with Icons -->
-                <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-lg font-medium">
-                    <a href="#" class="hover:text-indigo-200 transition duration-150 flex items-center gap-1" aria-label="Go to Account settings">
-                        <i class="fas fa-user-circle"></i> Account
-                    </a>
-                    <a href="#" class="hover:text-indigo-200 transition duration-150 flex items-center gap-1" aria-label="Get help">
-                        <i class="fas fa-question-circle"></i> Help
-                    </a>
-                    <a href="#" class="hover:text-indigo-200 transition duration-150 flex items-center gap-1" aria-label="View my bookings">
-                        <i class="fas fa-ticket-alt"></i> My Bookings
-                    </a>
+
+                <!-- Navigation + Social -->
+                <nav class="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-lg font-medium">
+                  <a href="#" class="hover:text-indigo-200 transition duration-150 flex items-center gap-1" aria-label="Account">
+                    <i class="fas fa-user-circle"></i> Account
+                  </a>
+                  <a href="#" class="hover:text-indigo-200 transition duration-150 flex items-center gap-1" aria-label="Help">
+                    <i class="fas fa-question-circle"></i> Help
+                  </a>
+                  <a href="#" class="hover:text-indigo-200 transition duration-150 flex items-center gap-1" aria-label="My Bookings">
+                    <i class="fas fa-ticket-alt"></i> My Bookings
+                  </a>
+
+                  <!-- Social Media -->
+                    <!-- Social Media -->
+                    <div class="flex items-center gap-2 ml-4">
+                      <span class="text-white text-sm font-semibold">Follow us on:</span>
+
+                      <!-- Instagram -->
+                      <a href="https://www.instagram.com/lokesh_ragutla96?igsh=ZHY2ZmcyZG1leGRh"
+                         target="_blank" title="Instagram"
+                         class="text-pink-400 hover:text-pink-300 text-xl">
+                        <i class="fab fa-instagram"></i>
+                      </a>
+
+                      <!-- Twitter -->
+                      <a href="https://x.com/lokeshragutla2?t=zNATjgNQnXrpWt6T4ZcCxQ&s=09"
+                         target="_blank" title="Twitter"
+                         class="text-blue-400 hover:text-blue-300 text-xl">
+                        <i class="fab fa-twitter"></i>
+                      </a>
+
+                      <!-- Threads -->
+                      <a href="https://www.threads.net/@lokesh_ragutla96"
+                         target="_blank" title="Threads"
+                         class="text-white hover:text-gray-300 text-xl">
+                        <i class="fas fa-at"></i>
+                      </a>
+                    </div>
+
                 </nav>
-            </div>
-        </header>
+              </div>
+            </header>
+
 
         <!-- Main Content Area: Split layout for booking forms and dynamic info display -->
         <main class="container mx-auto p-4 sm:p-6 lg:p-8 flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
