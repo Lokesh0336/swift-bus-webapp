@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwiftBookings - Your Ultimate Travel Partner</title>
+    <!-- Tailwind CSS CDN - Essential for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts - Inter (for body), Montserrat (for logo/heading) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@600;700;800&family=Permanent+Marker&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0V4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Link to your custom CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 font-sans text-gray-900">
+    <div id="app-root">
+        <!-- Header Section: Contains the main logo/title and navigation links -->
+        <header class="bg-indigo-800 text-white p-4 shadow-xl">
+            <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+                <!-- Main App Logo/Title with Montserrat font and animated airplane icon -->
+                <h1 class="text-3xl md:text-4xl tracking-wide mb-3 md:mb-0 flex items-center gap-2 font-logo text-white">
+                    <img src="https://www.logoground.com/uploads12/dv12y20232599112023-11-282887806book-train.jpg" alt="SwiftBookings Logo" class="w-10 h-10 rounded-full border-2 border-white shadow-md object-cover" />
+                    SwiftBookings <i class="fas fa-plane-departure text-xl animate-fly"></i>
+                </h1>
+                <!-- Main Navigation Links with Icons -->
+                <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-lg font-medium">
+                    <a href="#" class="hover:text-indigo-200 transition duration-150 flex items-center gap-1" aria-label="Go to Account settings">
+                        <i class="fas fa-user-circle"></i> Account
+                    </a>
+                    <a href="#" class="hover:text-indigo-200 transition duration-150 flex items-center gap-1" aria-label="Get help">
+                        <i class="fas fa-question-circle"></i> Help
+                    </a>
+                    <a href="#" class="hover:text-indigo-200 transition duration-150 flex items-center gap-1" aria-label="View my bookings">
+                        <i class="fas fa-ticket-alt"></i> My Bookings
+                    </a>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Main Content Area: Split layout for booking forms and dynamic info display -->
+        <main class="container mx-auto p-4 sm:p-6 lg:p-8 flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
+            <!-- Left Column: Contains Category Buttons and the Dynamic Booking Form -->
+            <div class="w-full lg:w-1/2 flex-shrink-0">
+                <!-- Category Buttons with Icons on Top -->
+                <div class="bg-white p-4 rounded-2xl shadow-xl border border-gray-100 mb-6 flex flex-wrap justify-center gap-4" role="tablist" aria-label="Booking Categories">
+                    <button id="category-bus" data-category="bus" class="category-btn flex flex-col items-center p-3 rounded-xl transition duration-200 ease-in-out transform hover:scale-105 active:scale-95 text-gray-700 hover:bg-indigo-50 active-category" role="tab" aria-selected="true" aria-controls="bus-booking-panel">
+                        <i class="fas fa-bus text-2xl mb-1 animate-bus"></i>
+                        <span class="text-sm font-semibold">Bus</span>
+                    </button>
+                    <button id="category-flight" data-category="flight" class="category-btn flex flex-col items-center p-3 rounded-xl transition duration-200 ease-in-out transform hover:scale-105 active:scale-95 text-gray-700 hover:bg-blue-50" role="tab" aria-selected="false" aria-controls="flight-booking-panel">
+                        <i class="fas fa-plane text-2xl mb-1 animate-fly"></i>
+                        <span class="text-sm font-semibold">Flight</span>
+                    </button>
+                    <button id="category-hotel" data-category="hotel" class="category-btn flex flex-col items-center p-3 rounded-xl transition duration-200 ease-in-out transform hover:scale-105 active:scale-95 text-gray-700 hover:bg-amber-50" role="tab" aria-selected="false" aria-controls="hotel-booking-panel">
+                        <i class="fas fa-hotel text-2xl mb-1"></i>
+                        <span class="text-sm font-semibold">Hotel</span>
+                    </button>
+                    <button id="category-train" data-category="train" class="category-btn flex flex-col items-center p-3 rounded-xl transition duration-200 ease-in-out transform hover:scale-105 active:scale-95 text-gray-700 hover:bg-sky-50" role="tab" aria-selected="false" aria-controls="train-booking-panel">
+                        <i class="fas fa-train text-2xl mb-1 animate-train"></i>
+                        <span class="text-sm font-semibold">Train</span>
+                    </button>
+                </div>
+
+                <!-- Dynamic Booking Form/Content will be injected here by JavaScript -->
+                <div id="booking-form-container" role="tabpanel" aria-labelledby="category-bus"></div>
+            </div>
+
+            <!-- Right Column: Dynamic Image and Description Display -->
+            <div id="info-display-container" class="w-full lg:w-1/2 bg-white rounded-3xl shadow-3xl p-6 lg:p-8 border border-gray-100 flex flex-col items-center text-center">
+                <img id="info-display-image" src="https://placehold.co/800x500/a78bfa/ffffff?text=Start+Your+Journey" alt="Journey Image" class="info-display-image rounded-2xl mb-6 shadow-md" style="height: 300px;">
+                <h3 id="info-display-title" class="text-3xl font-bold text-indigo-800 mb-3">Welcome to SwiftBookings!</h3>
+                <p id="info-display-description" class="text-gray-700 text-lg leading-relaxed">
+                    Your one-stop solution for seamless travel bookings. Select a category to begin your journey.
+                    Whether it's a bus, flight, hotel, or train, we've got you covered with the best deals and easy booking experience.
+                </p>
+            </div>
+        </main>
+
+        <!-- Global Overlays: Loading Spinner and Message Box (fixed position, appear over all content) -->
+        <div id="loading-spinner" class="hidden fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50" role="status" aria-label="Loading content">
+            <div class="animate-spin rounded-full h-24 w-24 border-t-4 border-b-4 border-indigo-600"></div>
+        </div>
+
+        <div id="message-box" class="hidden fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 p-4 animate-fade-in" role="alertdialog" aria-modal="true" aria-labelledby="message-box-title" aria-describedby="message-box-text">
+            <div id="message-box-content" class="rounded-2xl border-l-8 p-6 shadow-2xl max-w-sm w-full">
+                <div class="flex justify-between items-center mb-3">
+                    <p id="message-box-title" class="font-extrabold text-xl"></p>
+                    <button id="message-box-close-btn" class="text-gray-700 hover:text-gray-900 font-bold text-3xl leading-none transition duration-150" aria-label="Close message">&times;</button>
+                </div>
+                <p id="message-box-text" class="mt-2 text-base"></p>
+                <div class="mt-6 flex justify-end">
+                    <button id="message-box-action-btn" class="px-6 py-2.5 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-75 transition duration-150 shadow-md">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Section -->
+        <footer class="bg-indigo-800 text-white text-center p-5 mt-16 shadow-inner">
+            <p class="text-sm md:text-base">&copy; <span id="current-year"></span> SwiftBookings. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Link to your custom JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>

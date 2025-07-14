@@ -1,0 +1,210 @@
+/* =====================================================================
+   GLOBAL BASE STYLES
+   These styles apply across the entire application for consistency.
+   =====================================================================
+*/
+body {
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased; /* Smoother text rendering on macOS/iOS */
+    -moz-osx-font-smoothing: grayscale;  /* Smoother text rendering on macOS/iOS */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden; /* Prevent horizontal scroll on smaller screens */
+    line-height: 1.6; /* Improved readability */
+}
+
+/* Custom Scrollbar Styles - Designed to match the new color palette */
+::-webkit-scrollbar {
+    width: 10px; /* Wider scrollbar for better visibility */
+}
+
+::-webkit-scrollbar-track {
+    background: #e0e7ff; /* Light blue-100 for track */
+    border-radius: 10px; /* Rounded corners for the track */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #2c5282; /* Deep blue/teal for thumb */
+    border-radius: 10px; /* Rounded corners for the thumb */
+    border: 2px solid #e0e7ff; /* Border to make thumb stand out */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #2a4365; /* Darker deep blue/teal on hover */
+}
+
+/* Ensure the main app root takes up full viewport height */
+#app-root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Main content area to push the footer down to the bottom */
+main {
+    flex-grow: 1;
+}
+
+/* =====================================================================
+   CUSTOM UTILITY CLASSES & ANIMATIONS
+   These are specific styles not directly available in default Tailwind
+   or for custom animations, enhancing the professional look.
+   =====================================================================
+*/
+/* Fade-in animation for modals/messages */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* A more pronounced shadow for the "cardview" effect, similar to professional apps */
+.shadow-3xl {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.2), 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom animation for the booking confirmed emoji */
+@keyframes bounce-scale {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-10px) scale(1.1); }
+}
+.animate-bounce-scale {
+    animation: bounce-scale 0.6s infinite alternate;
+}
+
+/* Custom styling for date input icon (browser specific, might not work everywhere) */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(40%) sepia(100%) saturate(200%) hue-rotate(200deg) brightness(90%); /* Changes color to indigo-600 like */
+    cursor: pointer;
+}
+input[type="date"]::-moz-calendar-picker-indicator {
+    filter: invert(40%) sepia(100%) saturate(200%) hue-rotate(200deg) brightness(90%);
+    cursor: pointer;
+}
+
+/* Ensure images in info display cover their container */
+.info-display-image {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth image changes */
+}
+.info-display-image:hover {
+    transform: scale(1.01);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+
+/* Style for active category button */
+.category-btn.active-category {
+    background-color: #4f46e5; /* Indigo-600 */
+    color: white;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+.category-btn.active-category i {
+    color: white; /* Ensure icon color matches button */
+}
+
+/* Specific hover states for category buttons to match their primary colors */
+#category-bus:hover { background-color: #6366f1; /* Indigo-500 */ }
+#category-flight:hover { background-color: #3b82f6; /* Blue-500 */ }
+#category-hotel:hover { background-color: #f59e0b; /* Amber-500 */ }
+#category-train:hover { background-color: #0ea5e9; /* Sky-500 */ }
+
+/* Ensure icons within category buttons inherit color correctly */
+.category-btn i {
+    transition: color 0.15s ease-in-out;
+}
+.category-btn:hover i {
+    color: white;
+}
+
+/* Animations for specific icons */
+@keyframes fly {
+    0% { transform: translateX(0) translateY(0); }
+    50% { transform: translateX(5px) translateY(-2px); }
+    100% { transform: translateX(0) translateY(0); }
+}
+.animate-fly {
+    animation: fly 2s infinite ease-in-out;
+}
+
+@keyframes busMove {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(3px); }
+    100% { transform: translateX(0); }
+}
+.animate-bus {
+    animation: busMove 2s infinite ease-in-out;
+}
+
+@keyframes trainMove {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(-3px); }
+    100% { transform: translateX(0); }
+}
+.animate-train {
+    animation: trainMove 2s infinite ease-in-out;
+}
+
+/* Custom font for the main logo/heading */
+.font-logo {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Style for inline error messages */
+.input-error {
+    color: #ef4444; /* Red-500 */
+    font-size: 0.875rem; /* text-sm */
+    margin-top: 0.25rem; /* mt-1 */
+}
+
+/* Highlight invalid input fields */
+input.invalid, select.invalid {
+    border-color: #ef4444; /* Red-500 */
+    box-shadow: 0 0 0 1px #ef4444;
+}
+
+/* Autocomplete Dropdown Styles */
+.autocomplete-container {
+    position: relative; /* Needed for absolute positioning of dropdown */
+}
+
+.autocomplete-dropdown {
+    position: absolute;
+    top: 100%; /* Position right below the input */
+    left: 0;
+    right: 0;
+    z-index: 10; /* Ensure it appears above other content */
+    background-color: white;
+    border: 1px solid #e0e0e0; /* Light gray border */
+    border-radius: 0.5rem; /* rounded-lg */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    max-height: 200px; /* Limit height and add scrollbar */
+    overflow-y: auto;
+    list-style: none; /* Remove default list styling */
+    padding: 0;
+    margin-top: 0.25rem; /* Small margin from input */
+}
+
+.autocomplete-dropdown li {
+    padding: 0.75rem 1rem; /* py-3 px-4 */
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: #333;
+    transition: background-color 0.15s ease-in-out;
+}
+
+.autocomplete-dropdown li:hover,
+.autocomplete-dropdown li.active-suggestion {
+    background-color: #e0e7ff; /* blue-100 */
+    color: #4f46e5; /* indigo-600 */
+}
+
+.autocomplete-dropdown li:not(:last-child) {
+    border-bottom: 1px solid #f0f0f0; /* Light separator */
+}
